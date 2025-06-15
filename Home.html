@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <button onclick="scheduleQuiz()">Schedule Quiz</button>
+    <script>
+        function scheduleQuiz(){
+            const quizDate = document.createElement("input"); 
+            quizDate.setAttribute("type","date");
+          
+            const quizStartTime = document.createElement("input");
+            quizStartTime.setAttribute("type", "time");
+        
+            const quizEndTime = document.createElement("input");
+            quizEndTime.setAttribute("type","time");
+      
+           
+            const buttonElmeent = document.createElement("button");
+            buttonElmeent.innerHTML = "Compose Questions";
+            buttonElmeent.addEventListener("click",()=>{
+                const numberOfQuestions = document.createElement("input");
+                numberOfQuestions.placeholder = "enter how many questions you want to compose";
+                let n = numberOfQuestions.innerHTML.value;
+                document.body.appendChild(numberOfQuestions);
+
+            })
+               document.body.appendChild(quizDate);
+                   document.body.appendChild(quizStartTime);
+                         document.body.appendChild(quizEndTime);
+            document.body.appendChild(buttonElmeent);
+        }
+    </script>
+</body>
+</html>
