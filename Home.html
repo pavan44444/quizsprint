@@ -24,7 +24,18 @@
             buttonElmeent.addEventListener("click",()=>{
                 const numberOfQuestions = document.createElement("input");
                 numberOfQuestions.placeholder = "enter how many questions you want to compose";
-                let n = numberOfQuestions.innerHTML.value;
+              
+                let QuestionsSubmit = document.createElement("button");
+                document.body.appendChild(questionElement);
+                  let n = numberOfQuestions.value;
+                QuestionsSubmit.addEventListener("click",()=>{
+                          for(let i=1;i<=n;i++){
+                const questionElement= document.createElement("input");
+                questionElement.setAttribute("placeholder",`enter question${i}`);
+                document.body.appendChild(questionElement);
+             }
+                })
+           
                 document.body.appendChild(numberOfQuestions);
 
             })
