@@ -23,22 +23,45 @@
             buttonElmeent.innerHTML = "Compose Questions";
             buttonElmeent.addEventListener("click",()=>{
                 const numberOfQuestions = document.createElement("input");
-                numberOfQuestions.placeholder = "enter how many questions you want to compose";
-              
-                let QuestionsSubmit = document.createElement("button");
-                document.body.appendChild(questionElement);
-                  let n = numberOfQuestions.value;
-                QuestionsSubmit.addEventListener("click",()=>{
-                          for(let i=1;i<=n;i++){
-                const questionElement= document.createElement("input");
-                questionElement.setAttribute("placeholder",`enter question${i}`);
-                document.body.appendChild(questionElement);
-             }
-                })
-           
+                numberOfQuestions.setAttribute("type","file");
                 document.body.appendChild(numberOfQuestions);
 
-            })
+                //container for displaying the quiz
+                const quizContainer = document.createElement("div");
+                quizContainer.id = "quizContainer";
+                document.body.appendChild(quizContainer);
+                // adding change event to read the file
+               const block = `
+Q: What is the capital of France?
+A: Berlin
+A: Madrid
+A: Paris
+A: Rome
+C: Paris
+`;
+console.log(block);
+const lines = block.trim().split("\n");
+console.log(lines);
+const questoinLine = lines.find(line => line.startsWith("Q:"));
+console.log(questoinLine);
+const optionLines = lines.filter(line => line.startsWith("A:"));
+console.log(optionLines);
+const correctLine = lines.find(line => line.startsWith("C:"));
+console.log(correctLine);
+const questionText = questoinLine.replace("Q:", "").trim();
+console.log(questionText);
+const options = optionLines.map(line=>line.replace("A:", "").trim());
+console.log(options);
+const correctAnswer = correctLine.replace("C:","").trim();
+console.log(correctAnswer);
+let question_input = document.createElement("input");
+question_input.setAttribute("type","text");
+question_input.setAttribute("readonly",true);
+question_input.value = questoinLine;
+document.body.appendChild(question_input);
+
+
+})
                document.body.appendChild(quizDate);
                    document.body.appendChild(quizStartTime);
                          document.body.appendChild(quizEndTime);
